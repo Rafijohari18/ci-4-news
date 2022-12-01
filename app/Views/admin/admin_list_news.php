@@ -2,6 +2,8 @@
 
 <?= $this->section('content') ?>
 
+<h1>Rafi Johari Wilistianto</h1>
+<h1>NPM : 40621100085</h1>
 <table class="table">
 <thead>
 <tr>

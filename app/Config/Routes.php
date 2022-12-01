@@ -26,6 +26,7 @@ $routes->set404Override();
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
 // $routes->setAutoRoute(false);
+// $routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -35,7 +36,18 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/register', 'Register::index');
+$routes->post('/register/process', 'Register::process');
+
+$routes->get('/login', 'Login::index');
+$routes->post('/login/process', 'Login::process');
+$routes->get('/logout', 'Login::logout');
+
 $routes->get('/', 'Home::index');
+
+$routes->get('/about', 'Page::about');
+$routes->get('/contact', 'Page::contact');
+$routes->get('/faqs', 'Page::faqs');
 
 $routes->get('/news', 'News::index');
 $routes->get('/news/(:any)', 'News::viewNews/$1');
@@ -47,6 +59,10 @@ $routes->group('admin', function($routes){
     $routes->add('news/new', 'NewsAdmin::create');
 	$routes->add('news/(:segment)/edit', 'NewsAdmin::edit/$1');
 	$routes->get('news/(:segment)/delete', 'NewsAdmin::delete/$1');
+
+	$routes->get('home', 'Home::indexAdmin');
+
+
 });
 
 /*

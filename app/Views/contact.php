@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col-md-6">
 
-            <h3 class="h3">Hello <?= $name ?>!</h3>
+            <h1 class="h1">Hello <?= $name ?>!</h1>
+            <h1 class="h1">Dengan NPM <?= $npm ?>!</h1>
             <p>Silahkan hubungi kami melalui form berikut</p>
 
             <form action="" class="form">

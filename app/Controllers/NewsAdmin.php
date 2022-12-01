@@ -22,7 +22,7 @@ class NewsAdmin extends BaseController
 		if(!$data['news']){
 			throw PageNotFoundException::forPageNotFound();
 		}
-		echo view('admin/news_detail', $data);
+		echo view('news_detail', $data);
     }
 
     //--------------------------------------------------------------------------
