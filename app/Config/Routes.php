@@ -43,6 +43,8 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login/process', 'Login::process');
 $routes->get('/logout', 'Login::logout');
 
+$routes->get('/auth/logout', 'Login::logout');
+
 $routes->get('/', 'Home::index');
 
 $routes->get('/about', 'Page::about');
@@ -53,15 +55,23 @@ $routes->get('/news', 'News::index');
 $routes->get('/news/(:any)', 'News::viewNews/$1');
 
 
-$routes->group('admin', function($routes){
+$routes->group('admin',['filter' => 'usersAuth'], function($routes){
+	//home
+	$routes->get('home', 'Home::indexAdmin');
+	
+	//news
 	$routes->get('news', 'NewsAdmin::index');
 	$routes->get('news/(:segment)/preview', 'NewsAdmin::preview/$1');
     $routes->add('news/new', 'NewsAdmin::create');
 	$routes->add('news/(:segment)/edit', 'NewsAdmin::edit/$1');
 	$routes->get('news/(:segment)/delete', 'NewsAdmin::delete/$1');
 
-	$routes->get('home', 'Home::indexAdmin');
-
+	//wa-sales-products
+	$routes->get('wa-sales-products', 'WaSalesProductsAdmin::index');
+	$routes->get('wa-sales-products/(:segment)/preview', 'WaSalesProductsAdmin::preview/$1');
+    $routes->add('wa-sales-products/new', 'WaSalesProductsAdmin::create');
+	$routes->add('wa-sales-products/(:segment)/edit', 'WaSalesProductsAdmin::edit/$1');
+	$routes->get('wa-sales-products/(:segment)/delete', 'WaSalesProductsAdmin::delete/$1');
 
 });
 

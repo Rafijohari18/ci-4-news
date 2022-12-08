@@ -55,6 +55,8 @@
                 <?php echo session()->getFlashdata('error'); ?>
             </div>
         <?php endif; ?>
+        <h1>Rafi Johari</h1>
+        <h1>40621100085</h1>
         <form method="post" action="<?= base_url(); ?>/login/process">
             <?= csrf_field(); ?>
             <h1 class="h3 mb-3 fw-normal">Login</h1>

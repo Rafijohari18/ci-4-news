@@ -4,6 +4,8 @@
 
 <h1>Rafi Johari Wilistianto</h1>
 <h1>NPM : 40621100085</h1>
+<a href="<?= base_url('admin/news/new') ?>" class="btn btn-primary mr-3 mb-4">Add Data</a>
+
 <table class="table">
 <thead>
 <tr>
